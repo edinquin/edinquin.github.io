@@ -1,0 +1,33 @@
+article {
+    background-color: #FFECB3;
+    font-size: 16px;
+    color: #333;
+}
+
+.featured {
+    background-color: #FFD54F;
+    font-weight: bold;
+    border: 2px solid #FFA000;
+    animation-name: fadeout;
+    animation-duration: 1s;
+}
+
+.featured:hover {
+    background-color: #FFB300;
+    animation-name: fadein;
+    animation-duration: 1s;
+}
+
+@keyframes fadein {
+    from {background-color: #FFD54F;}
+    to {background-color: #FFB300;}
+}
+@keyframes fadeout {
+    from {background-color: #FFB300;}
+    to {background-color: #FFD54F;}
+}
+
+article p {
+    line-height: 1.5em;
+    font-style: italic;
+}
