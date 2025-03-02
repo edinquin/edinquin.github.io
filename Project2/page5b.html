@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Path of Stealth</title>
+  <!-- TODO: Import your CSS File here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="container">
+  <h1>The Path of Stealth</h1>
+  <p>To successfully navigate the Path of Stealth, you must choose your actions carefully. Select the correct sequence of actions to avoid detection and reach your objective.</p>
+  <!-- Actions -->
+  <div id="hide" class="stealth-option">Hide in the shadows</div>
+  <div id="run" class="stealth-option">Run quickly to the next cover</div>
+  <div id="distract" class="stealth-option">Create a distraction</div>
+  <div id="wait" class="stealth-option">Wait for the right moment</div>
+  <!-- Buttons -->
+  <button onclick="checkSequence()">Check Sequence</button>
+  <button onclick="reset()">Reset!</button>
+  <script>
+    'use strict';
+    const correctSequence = ['hide', 'wait', 'distract'];
+    const buttons = document.getElementsByClassName('stealth-option');
+    // Your Code here
+    let sequence = 0;
+    let died = false;
+
+    let dataString = "";
+
+    for (let button of buttons) {
+      button.addEventListener('click', function() {
+        selectAction(this.id);
+      });
+    }
+
+    function selectAction(action) {
+      if (correctSequence[sequence] === action && died === false) {
+        sequence++;
+      } else {
+        died = true;
+      }
+    }
+    function checkSequence() {
+      if (sequence === correctSequence.length && died === false) {
+        alert("Congratulations! You successfully avoided danger!");
+        window.location.href = 'page6.html' + dataString;
+      } else {
+        alert("Incorrect sequence, please reset the sequence and try again.")
+      }
+    }
+    function reset() {
+      sequence = 0;
+      died = false;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const oldData = urlParams.get('data');
+    urlParams.delete('data');
+
+    const data = document.querySelector("#data");
+    dataString = oldData + "&" + urlParams.toString();
+    console.log(dataString);
+
+  </script>
+</section>
+</body>
+</html>

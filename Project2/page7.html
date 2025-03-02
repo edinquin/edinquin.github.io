@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Quest for the Crystal of Wisdom</title>
+  <!-- TODO: Import your CSS File here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="container">
+  <h1>Your Quest Has Concluded</h1>
+  <p>Based on your choices, <strong id="data"></strong> The kingdom will remember your deeds for generations to come.</p>
+  <p>We hope you enjoyed your adventure. Would you like to provide feedback on your experience?</p>
+  <label for="feedback">Your Feedback: <textarea name="feedback" id="feedback" cols="50" rows="5" placeholder="Enter your feedback here..."></textarea></label>
+  <input type="submit" value="Submit Feedback"><br>
+  <button onclick="window.location.href='welcome.html'">Play Again</button>
+  <p>I am really thankful for my parents because they were always there for me since day 1.</p>
+</section>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const oldData = urlParams.get('data');
+  urlParams.delete('data');
+
+  const data = document.querySelector("#data");
+  const newParams = new URLSearchParams(oldData + "&" + urlParams.toString())
+
+  data.innerHTML = `Character Chosen: ${newParams.get("character")}. Supplies: ${newParams.getAll("Supplies")}. Path Chosen: ${newParams.get("pathChoice")}. Confronted Malakar with: ${newParams.get("confront")}. Weapon: ${newParams.get("weapon")}. Armor/s: ${newParams.getAll("armor")}. Message: ${newParams.get("message")}`;
+</script>
+</body>
+</html>

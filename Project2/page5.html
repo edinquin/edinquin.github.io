@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Journey Continues</title>
+  <!-- TODO: Import your CSS File here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="container">
+  <h1>The Journey Continues</h1>
+  <p>With the guardian's riddle behind you, the path forward splits into three. Each route is known to favor certain traits: strength, wisdom, or stealth. Choose your path wisely, as it will influence the challenges you face ahead.</p>
+  <!-- Your Form -->
+  <form method="get" action="page5.html">
+    <label for="pathChoice">Choose your path:</label>
+    <select name="pathChoice" id="pathChoice" required>
+      <option value="" selected>--Please choose an option--</option>
+      <option value="stealth">The Path of Stealth</option>
+      <option value="war">The Path of War</option>
+      <option value="magic">The Path of Magic</option>
+    </select>
+    <input type="submit" value="Continue on Your Journey">
+    <input id="data" type="text" name="data" value="" hidden="hidden"><label for="data" hidden="hidden"></label>
+  </form>
+  <p>Your choice will not only test your abilities but also reveal deeper truths about your character.</p>
+</section>
+
+<script>
+  const pathChoice = document.getElementById("pathChoice");
+  const body = document.getElementsByTagName("body")[0];
+  const form = document.getElementsByTagName("form")[0];
+
+  pathChoice.addEventListener("change", () => {
+    if (pathChoice.value === "stealth") {
+      body.style.backgroundColor = "grey";
+      form.action = "page5b.html";
+    }
+    else if (pathChoice.value === "war") {
+      body.style.backgroundColor = "red";
+      form.action = "page5c.html";
+    }
+    else if (pathChoice.value === "magic") {
+      body.style.backgroundColor = "green";
+      form.action = "page5d.html";
+    } else {
+      body.style.backgroundColor = "white";
+      form.action = "";
+    }
+  });
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const oldData = urlParams.get('data');
+  urlParams.delete('data');
+
+  const data = document.querySelector("#data");
+  data.value = oldData;
+  console.log(data.value);
+</script>
+</body>
+</html>

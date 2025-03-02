@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The First Obstacle</title>
+  <!-- TODO: Import your CSS File here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="container">
+<form action="page5.html" method="GET" id="characterForm">
+  <h1>The First Obstacle</h1>
+  <p>As you venture deeper into the Dark Forest, you encounter a mystical guardian. The guardian blocks your path and poses a riddle:</p>
+  <em>"I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?"</em>
+
+  <label for="input">Your Answer: <input type="text" id="input"></label>
+  <button id="submitButton" disabled>Submit Answer</button>
+  <p>Think carefully, for the correct answer will allow you passage.</p>
+  <input id="data" type="text" name="data" value="" hidden="hidden"><label for="data" hidden="hidden"></label>
+</form>
+</section>
+<script>
+  const submitBtn = document.getElementById('submitButton');
+  const input = document.getElementById('input');
+
+  input.addEventListener('keyup', function() {
+    if (input.value === "echo") {
+      submitBtn.disabled = false;
+      submitBtn.style.backgroundColor = "green";
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.style.backgroundColor = "red";
+    }
+  });
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const oldData = urlParams.get('data');
+  urlParams.delete('data');
+
+  const data = document.querySelector("#data");
+  data.value = oldData + "&" + urlParams.toString();
+</script>
+</body>
+</html>
+
+<!--Question:-->
+<!--The common stylesheet is keeping the button blue. Override this behaviour to set color as white and background-color as red. How would you do this without touching the main style.css file?-->
+
+<!--You can overide this without touching the css file by using javascript to add a inline css attribute.-->

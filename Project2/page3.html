@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Quest Begins</title>
+  <!-- TODO: Import your CSS File here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="container">
+  <h1>Pack Your Bag</h1>
+  <p>Select the supplies you wish to take on your quest. Choose wisely, as you can only carry a limited amount.</p>
+  <form action="page4.html" method="GET" id="characterForm">
+    <fieldset>
+      <legend>Choose Your Supplies</legend>
+      <label for="food"><input type="checkbox" name="Supplies" id="food" value="Food"> Food</label>
+      <label for="water"><input type="checkbox" name="Supplies" id="water" value="Water"> Water</label>
+      <label for="potions"><input type="checkbox" name="Supplies" id="potions" value="Potions"> Magic Potions</label>
+      <label for="maps"><input type="checkbox" name="Supplies" id="maps" value="Maps"> Maps</label>
+      <label for="sword"><input type="checkbox" name="Supplies" id="sword" value="Sword"> Sword</label>
+      <input id="data" type="text" name="data" value="" hidden="hidden"><label for="data" hidden="hidden"></label>
+    </fieldset>
+    <input type="submit" value="Submit">
+  </form>
+</section>
+<script>
+  const data = document.querySelector("#data");
+  data.value = window.location.search;
+</script>
+</body>
+</html>
