@@ -1,0 +1,123 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1rem;
+}
+
+header > ul > li {
+    margin-right: 2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+header > h2 {
+    margin-left: 2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article > h2 {
+    font-size: 1.3rem;
+}
+article > h1 {
+    font-size: 2rem;
+}
+
+article * {
+    margin: 0.2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+article > img {
+    margin-bottom: 2rem;
+    height: 17rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+article > a {
+    margin-top: 0.7rem;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: grey;
+    padding: .5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+a:hover {
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    background-color: #4e4e4e;
+    box-shadow: 2px 2px 5px #4e4e4e;
+}
+
+a:not(:hover) {
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+    background-color: grey;
+}
+
+a:active {
+    background-color: #4e4e4e;
+    box-shadow: 2px 2px 5px #4e4e4e;
+}
+
+.current {
+    background-color: #4e4e4e !important;
+    box-shadow: 2px 2px 5px #535353;
+}
+
+
+@keyframes fadeOut {
+    from {
+        background-color: grey;
+    }
+    to {
+        background-color: #4e4e4e;
+        box-shadow: 2px 2px 5px #4e4e4e;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: #4e4e4e;
+        box-shadow: 2px 2px 5px #4e4e4e;
+    }
+    to {
+        background-color: grey;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+    100% {
+        transform: translateY(0rem);
+    }
+}

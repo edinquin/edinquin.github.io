@@ -1,0 +1,177 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1rem;
+}
+
+header > ul > li {
+    margin-right: 2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+header > h2 {
+    margin-left: 2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}
+
+article {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+article > h2 {
+    font-size: 1.3rem;
+}
+
+article > h1 {
+    font-size: 2rem;
+}
+
+article * {
+    margin: 0.2rem;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    padding: 1em;
+    max-width: 1000px;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    background-color: rgba(105, 105, 105, 0.1);
+    border-radius: 1.5rem;
+    /*max-width: 30%;*/
+    /*height: 30vh;*/
+}
+
+.container img {
+    max-height: 10rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.container img:hover {
+    animation-name: zoom;
+    animation-duration: 0.8s;
+    transform: scale(2.5);
+    box-shadow: 2px 2px 5px #4e4e4e;
+}
+
+.container img:not(:hover) {
+    animation-name: zoomOut;
+    animation-duration: 0.4s;
+}
+
+.container > div > h1 {
+    margin: 1rem 1rem 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: grey;
+    padding: .5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+a:hover {
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    background-color: #4e4e4e;
+    box-shadow: 2px 2px 5px #4e4e4e;
+}
+
+a:not(:hover) {
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+    background-color: grey;
+}
+
+a:active {
+    background-color: #4e4e4e;
+    box-shadow: 2px 2px 5px #4e4e4e;
+}
+
+.current {
+    background-color: #4e4e4e !important;
+    box-shadow: 2px 2px 5px #535353;
+}
+
+
+@keyframes fadeOut {
+    from {
+        background-color: grey;
+    }
+    to {
+        background-color: #4e4e4e;
+        box-shadow: 2px 2px 5px #4e4e4e;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: #4e4e4e;
+        box-shadow: 2px 2px 5px #4e4e4e;
+    }
+    to {
+        background-color: grey;
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(2.6);
+        box-shadow: 2px 2px 5px #4e4e4e;
+    }
+    60% {
+        transform: scale(2.4);
+    }
+    100% {
+        transform: scale(2.5);
+    }
+}
+@keyframes zoomOut {
+    0% {
+        transform: scale(2.5);
+    }
+    30% {
+        transform: scale(0.9);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
